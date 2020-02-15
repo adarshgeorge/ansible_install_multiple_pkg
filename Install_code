@@ -1,0 +1,26 @@
+---
+  - name: "Deploying multiple pkg"
+    hosts: all
+    become: yes
+    tasks:
+      - name: "installing Apache, PHP and MariaDB"
+        yum:
+          name:
+            - httpd
+            - php
+            - mariadb-server
+          state: present
+      - name: "starting service"
+        service:
+          name: "{{ item }}"
+          state: restarted
+          enabled: yes
+        with_items:
+          - httpd
+          - mariadb
+      - name: "Host a file"
+        copy:
+          content: "Hello World Multiple"
+          dest: /var/www/html/index.html
+          owner: apache
+          group: apache
