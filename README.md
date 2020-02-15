@@ -3,7 +3,7 @@ This is sample installation for multiple packages using ansible
 
 
 # code
-
+<
 ---
   - name: "Deploying multiple pkg"
     hosts: all
@@ -27,3 +27,4 @@ This is sample installation for multiple packages using ansible
           dest: /var/www/html/index.html
           owner: apache
           group: apache
+>
