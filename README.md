@@ -20,11 +20,14 @@ This is sample installation for multiple packages using ansible
         service:
           name: httpd
           state: restarted
+          enabled: yes
+          
       - name: "Starting Mariadb"
         service:
           name: mariadb
           state: restarted
           enabled: yes
+          
       - name: "Host a file"
         copy:
           content: "Hello World Multiple"
