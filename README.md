@@ -18,7 +18,11 @@ This is sample installation for multiple packages using ansible
           state: present
       - name: "starting service"
         service:
-          name: httpd,mariadb
+          name: httpd
+          state: restarted
+      - name: "Starting Mariadb"
+        service:
+          name: mariadb
           state: restarted
           enabled: yes
       - name: "Host a file"
